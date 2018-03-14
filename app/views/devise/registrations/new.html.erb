@@ -1,0 +1,51 @@
+<h2>Crear Cuenta</h2>
+<br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :Nombre %><br />
+    <%= f.text_field :name, placeholder: "Ingresa Aquí Tu Nombre ...", autofocus: true, autocomplete: "name" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :Apellido %><br />
+    <%= f.text_field :lastname, placeholder: "Ingresa Tu Apellido ...", autocomplete: "lastname" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, placeholder: "Ingresa tu@correo ...", autocomplete: "email" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :contraseña %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
+    <% end %><br />
+    <%= f.password_field :password, placeholder: "Ingresa Tu Contraseña ...", autocomplete: "off" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :confirmar_contraseña %><br />
+    <%= f.password_field :password_confirmation, placeholder: "Confirma Tu Contraseña ...", autocomplete: "off" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :sube_una_imagen %>
+    <%= f.file_field :image, id: :photo_image %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Regístrate" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
